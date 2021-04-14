@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            margin: 0;
+            height: 100vh;
+        }
+        
+        body {
+            position: relative;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .main-row {
+            width: 250px;
+            display: flex;
+        }
+        
+        .r1 {
+            justify-content: center;
+        }
+        
+        .r2 {
+            justify-content: space-between;
+        }
+        
+        .r3 {
+            justify-content: center;
+        }
+        
+        #image3 {
+            order: 3;
+        }
+        
+        #ball {
+            display: block;
+        }
+        
+        button {
+            padding: 14px;
+            background-color: rgb(255, 14, 54);
+            color: white;
+            border: 2px solid black;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-row r1">
+            <img src="http://www.webhammer.com/javascript/materials/marble1.jpg" alt="" class="image" id="image1">
+            <img src="http://www.webhammer.com/javascript/materials/marble1.jpg" alt="" class="image" id="image2">
+        </div>
+        <div class="main-row r2">
+            <img src="http://www.webhammer.com/javascript/materials/marble1.jpg" alt="" class="image" id="image3">
+            <img src="http://www.webhammer.com/javascript/materials/marble1.jpg" alt="" class="image" id="image4">
+            <img src="http://www.webhammer.com/javascript/materials/marble1.jpg" alt="" class="image" id="image5">
+
+        </div>
+        <div class="main-row r3">
+            <img src="http://www.webhammer.com/javascript/materials/marble1.jpg" alt="" class="image" id="image6">
+            <img src="http://www.webhammer.com/javascript/materials/marble1.jpg" alt="" class="image" id="image7">
+        </div>
+    </div>
+    <p>
+        <strong>To start, click on wheel</strong>
+    </p>
+    <img src="ball.png" alt="" id="ball" onclick="start()">
+    <button onclick="stop()">Stop</button>
+    <script src="script16.js"></script>
+</body>
+
+</html>

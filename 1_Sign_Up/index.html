@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: 600;
+            margin: 4px 0;
+        }
+        
+        label:hover {
+            cursor: pointer;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        input,
+        select {
+            padding: 10px;
+            font-weight: bold;
+            color: navy;
+        }
+        
+        #btn {
+            padding: 10px;
+            background-color: navy;
+            color: white;
+            margin: 5px 0;
+            border-radius: 2px;
+            cursor: pointer;
+            width: 80px;
+        }
+        
+        #reg-message {
+            color: red;
+            background-color: rgb(255, 207, 214);
+            border: 2px solid red;
+            font-weight: bold;
+            list-style: disc;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="reg-message">
+
+        </ul>
+        <form>
+            <label for="edu">Select your qualification:</label>
+            <select name="qualification" id="edu">
+                <option value="btech">B-Tech</option>
+                <option value="mtech">M-Tech</option>
+                <option value="phd">Phd</option>
+                <option value="nalla">12th only</option>
+            </select>
+            <label class="label" for="name">Name</label>
+            <input type="text" id="name">
+            <label class="label" for="phone">Phone</label>
+            <input type="text" id="phone">
+            <label class="label" for="age">Age</label>
+            <input type="text" id="age">
+            <label class="label" for="gender">Gender</label>
+            <input type="text" id="gender">
+            <label class="label" for="email">Email</label>
+            <input type="text" id="email">
+            <label class="label" for="word">Password</label>
+            <input type="text" id="word">
+            <label class="label" for="cword">Confirm Password</label>
+            <input type="text" id="cword">
+            <label class="label" for="city">City</label>
+            <input type="text" id="city">
+        </form>
+        <button id="btn" onclick="regCheck()">Sign Up</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

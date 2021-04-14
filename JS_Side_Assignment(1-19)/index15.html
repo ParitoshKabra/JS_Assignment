@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        img {
+            height: auto;
+            width: auto;
+            max-width: 500px;
+        }
+        
+        #util-btns {
+            display: flex;
+            width: 500px;
+            margin: 5px 0;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        button {
+            padding: 14px;
+            background-color: rgb(255, 14, 54);
+            color: white;
+            border: 2px solid black;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" id="image">
+        <div id="util-btns">
+            <button id="2" onclick="prev()">Previous</button>
+            <button id="1" onclick="next()">Next</button>
+        </div>
+    </div>
+    <script src="script15.js"></script>
+</body>
+
+</html>

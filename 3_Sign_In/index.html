@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(221, 221, 221);
+        }
+        
+        .container,
+        #output {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 10px;
+        }
+        
+        label {
+            display: block;
+            color: black;
+            font-weight: 400;
+            font-size: 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        
+        input {
+            padding: 5px 10px;
+            margin: 5px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #submit {
+            width: 60px;
+            cursor: pointer;
+        }
+        
+        button {
+            width: 80px;
+            margin: 5px;
+            padding: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="form" method="POST">
+            <label for="email">Enter your email:</label>
+            <input type="email" name="email" id="email">
+            <label for="password">Enter your password:</label>
+            <input type="text" name="password" id="password">
+        </form>
+        <button onclick="myFunction()">Submit</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
