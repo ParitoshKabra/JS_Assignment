@@ -16,7 +16,7 @@ let regExp = {
     age: /^\d{1,3}$/,
     gender: /\b(male|female|other).*/,
     email: /[^\s@\W]+\.?_?\.?[a-z]?@[^\s@\W]+\.?[^\s@\W]+?\.?[^\s@\W]+?\.?(com|in|edu)/,
-    password: /[A-Za-z]+[@$#%&*]+[0-9]+/,
+    password: /(?=.^{8,}$)(?=.*\d)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
     cword: /[\w]+[@$#%&*]+[0-9]+/,
     city: /\b\w+\b/
 };
@@ -26,7 +26,7 @@ let labels = {
     age: "age",
     gender: "gender-option",
     email: "email-syntax",
-    password: "password format. Must include atleast a digit and special character",
+    password: "password format. Must include atleast a digit and special character and atleast 8 characters.",
     cword: "",
     city: "city-name. Should containe only words."
 };

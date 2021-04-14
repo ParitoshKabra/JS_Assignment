@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Shuffle</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        button {
+            padding: 14px;
+            display: block;
+            margin: 2px;
+        }
+        
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="openMe()">Open windows</button>
+    <button onclick="closeMe()">Close Window</button>
+
+</body>
+<script>
+    function openMe() {
+        let array = new Array(4);
+        array[0] = window.open("https://www.google.com/", "_blank", "width=100, height=100, top=0, left=0", );
+        array[1] = window.open("https://www.w3schools.com/", "_blank", `width=100, height=100, top=0, left=${screen.width}`, );
+        array[2] = window.open("https://www.bing.com/", "_blank", `width=100, height=100, top=${screen.availHeight}, left=0`, );
+        array[3] = window.open("https://www.facebook.com/", "_blank", `width=100, height=100, top=${screen.availHeight}, left=${screen.availWidth}`, );
+    }
+
+    function closeMe() {
+        for (let i = 0; i < array.length; i++) {
+            array[i].close();
+        }
+        window.close();
+    }
+</script>
+
+</html>

@@ -12,6 +12,7 @@ function func() {
                 console.log(users);
                 let userAvatar = document.querySelectorAll('.username>img');
                 console.log(users);
+                console.log(obj);
                 let array = obj["data"];
 
                 for (let i = 0; i < array.length; i++) {

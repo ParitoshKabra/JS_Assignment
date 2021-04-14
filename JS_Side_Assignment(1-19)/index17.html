@@ -8,7 +8,9 @@
     <title>Document</title>
     <style>
         body {
+            border: 2px solid black;
             position: relative;
+            height: 100vh;
         }
         
         * {
@@ -17,6 +19,12 @@
         }
         
         button {
+            padding: 14px;
+            display: block;
+            margin: auto;
+        }
+        
+        button.img {
             display: block;
             padding: 0;
             margin: 0;
@@ -28,16 +36,36 @@
         button:hover {
             cursor: pointer;
         }
+        
+        img {
+            display: block;
+            height: 200px;
+            width: auto;
+            margin: auto auto;
+        }
     </style>
 </head>
 
 <body>
-    <button onclick="open()"><img src="https://cdn.pixabay.com/photo/2021/04/07/05/39/labrador-retriever-6158095__480.jpg" alt="image not loaded"></button>
-    <script>
-        function open() {
-            window.open("https://www.w3schools.com/", "_blank", width = '200px', height = '100px');
-        }
-    </script>
+    <button class="img" onclick="openMe()"><img src="https://cdn.pixabay.com/photo/2021/04/07/05/39/labrador-retriever-6158095__480.jpg" alt="image not loaded"></button>
+    <button onclick="closeMe()">Close Window</button>
+
 </body>
+<script>
+    let mywindow = undefined;
+
+    function openMe() {
+        mywindow = window.open("https://www.w3schools.com/", "_blank", "width=300, height=300");
+    }
+
+    function closeMe() {
+        if (mywindow == undefined) {
+            alert("Click on image first to open window!@!");
+        } else {
+            mywindow.close();
+            mywindow = undefined;
+        }
+    }
+</script>
 
 </html>
