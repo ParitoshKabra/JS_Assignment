@@ -4,73 +4,60 @@ let form = {
     age: document.getElementById('age'),
     gender: document.getElementById('gender'),
     email: document.getElementById('email'),
-    password: document.getElementById('word'),
+    password: document.getElementById('password'),
     cword: document.getElementById('cword'),
     city: document.getElementById('city')
 };
 // console.log(form);
 let regExp = {
-    name: /^.*\s+?.*$/,
+    name: /^[A-Za-z]+\s+?[A-Za-z]*$/,
     phone: /^[6-9]\d{9}$/,
-    age: /^0?[1][0-9]|[1][1-9][1-9]|200$/,
+    age: /^\d\d?\d?$/,
     gender: /\b(male|female|other).*/,
     email: /[^\s@\W]+\.?_?\.?[a-z]?@[^\s@\W]+\.?[^\s@\W]+?\.?[^\s@\W]+?\.?(com|in|edu)/,
     password: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
     cword: /[\w]+[@$#%&*]+[0-9]+/,
-    city: /\b\w+\b/
+    city: /\b[A-Za-z]+\b/
 };
 let labels = {
-    name: "name. Should include only alphabets and one whitespace",
+    name: "name. Should include only alphabets.",
     phone: "phone number",
     age: "age",
     gender: "gender-option",
     email: "email-syntax",
     password: "password format. Must include atleast a digit and special character and atleast 8 characters.",
-    cword: "",
-    city: "city-name. Should containe only words."
+    cword: "form. Passowrd should match when confirmed",
+    city: "city-name. Should contain only words."
 };
-let ul = document.getElementById('reg-message');
-
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
+let errorP = document.querySelectorAll('.error');
+let error = {
+    name: errorP[0],
+    phone: errorP[1],
+    age: errorP[2],
+    gender: errorP[3],
+    email: errorP[4],
+    password: errorP[5],
+    cword: errorP[6],
+    city: errorP[7]
 }
+let inputs = document.querySelectorAll('.inputF');
 
-function regCheck() {
-    let ul = document.getElementById('reg-message');
-
-    removeAllChildNodes(ul);
-    for (const key in form) {
-        if (form[key].value.length == 0) {
-            let li = document.createElement('li');
-            let textNode = document.createTextNode(key + " field is empty!");
-            ul.appendChild(li);
-            li.appendChild(textNode);
-            ul.style.display = 'block';
+document.querySelectorAll('.inputF').forEach(item => {
+    item.addEventListener('change', () => {
+        error[item.id].innerHTML = "";
+        if (item.value.length == 0) {
+            error[item.id].style.display = 'none';
         } else {
-            if (key == 'cword') {
-                if (form[key].value != form["password"].value) {
-                    let li = document.createElement('li');
-                    let textNode = document.createTextNode("Password entered does not match when confirmed");
-                    ul.appendChild(li);
-                    li.appendChild(textNode);
-                    ul.style.display = 'block';
-                }
+            if (!regExp[item.id].test(form[item.id].value)) {
+                let text = document.createTextNode("Invalid, " + labels[item.id]);
+                console.log(item);
+                error[item.id].appendChild(text);
+                error[item.id].style.display = 'block';
             } else {
-
-                if (!regExp[key].test(form[key].value)) {
-                    let li = document.createElement('li');
-                    let textNode = document.createTextNode("Invalid " + labels[key]);
-                    let ul = document.getElementById('reg-message');
-                    ul.appendChild(li);
-                    li.appendChild(textNode);
-                    ul.style.display = 'block';
-                    console.log(key);
-                }
+                error[item.id].style.display = 'none';
 
             }
-        }
-    }
 
-}
+        }
+    })
+})

@@ -19,7 +19,7 @@
         
         label {
             font-weight: 600;
-            margin: 4px 0;
+            margin: 5px 10px;
         }
         
         label:hover {
@@ -33,7 +33,8 @@
         
         input,
         select {
-            padding: 10px;
+            padding: 15px;
+            margin: 5px 10px;
             font-weight: bold;
             color: navy;
         }
@@ -42,20 +43,25 @@
             padding: 10px;
             background-color: navy;
             color: white;
-            margin: 5px 0;
+            margin: 5px 10px;
             border-radius: 2px;
             cursor: pointer;
             width: 80px;
         }
         
-        #reg-message {
+        .element {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .error {
             color: red;
             background-color: rgb(255, 207, 214);
             border: 2px solid red;
             font-weight: bold;
             list-style: disc;
             padding: 15px;
-            margin-bottom: 20px;
+            margin: 5px 10px;
             display: none;
         }
     </style>
@@ -63,9 +69,7 @@
 
 <body>
     <div id="container">
-        <ul id="reg-message">
 
-        </ul>
         <form>
             <label for="edu">Select your qualification:</label>
             <select name="qualification" id="edu">
@@ -74,26 +78,42 @@
                 <option value="phd">Phd</option>
                 <option value="nalla">12th only</option>
             </select>
-            <label class="label" for="name">Name</label>
-            <input type="text" id="name">
-            <label class="label" for="phone">Phone</label>
-            <input type="text" id="phone">
-            <label class="label" for="age">Age</label>
-            <input type="text" id="age">
-            <label class="label" for="gender">Gender</label>
-            <input type="text" id="gender">
-            <label class="label" for="email">Email</label>
-            <input type="text" id="email">
-            <label class="label" for="word">Password</label>
-            <input type="password" id="word">
-            <label class="label" for="cword">Confirm Password</label>
-            <input type="password" id="cword">
-            <label class="label" for="city">City</label>
-            <input type="text" id="city">
+            <div class="element"><label class="label" for="name">Name</label>
+                <input class="inputF" type="text" id="name">
+            </div>
+            <span class="error"></span>
+            <div class="element"><label class="label" for="phone">Phone</label>
+                <input class="inputF" type="text" id="phone">
+            </div>
+            <span class="error"></span>
+            <div class="element"><label class="label" for="age">Age</label>
+                <input class="inputF" type="text" id="age">
+            </div>
+            <span class="error"></span>
+            <div class="element"><label class="label" for="gender">Gender</label>
+                <input class="inputF" type="text" id="gender">
+            </div>
+            <span class="error"></span>
+            <div class="element"><label class="label" for="email">Email</label>
+                <input class="inputF" type="text" id="email">
+            </div>
+            <span class="error"></span>
+            <div class="element"><label class="label" for="password">Password</label>
+                <input class="inputF" type="text" id="password">
+            </div>
+            <span class="error"></span>
+            <div class="element"><label class="label" for="cword">Confirm Password</label>
+                <input class="inputF" type="password" id="cword">
+            </div>
+            <span class="error"></span>
+            <div class="element"><label class="label" for="city">City</label>
+                <input class="inputF" type="text" id="city">
+            </div>
+            <span class="error"></span>
         </form>
         <button id="btn" onclick="regCheck()">Sign Up</button>
-    </div>
-    <script src="script.js"></script>
+
+        <script src="script.js"></script>
 </body>
 
 </html>

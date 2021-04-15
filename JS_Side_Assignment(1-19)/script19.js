@@ -1,24 +1,17 @@
-function setCookie(name, value, exDays) {
-    let date = new Date();
-    date.setTime(date.getTime() + exDays * 24 * 60 * 60 * 1000);
-    date = date.toUTCString();
-    document.cookie = `${name}=${value}; expires = ${date}; path=/;`;
-}
+document.cookie = `counter=0;expires=Sun, 15 Jul 2022 00:00:01 GMT`;
+let visits = document.cookie.charAt(8);
 
-setCookie("counter", "0", 200);
+visits = parseInt(visits);
 
 function visitCounter() {
-    let visits = (document.cookie).charAt(8);
-    visits = parseInt(visits);
-    if (visits == 0) {
+    if (!visits) {
         visits = 1;
-        setCookie("counter", visits.toString(), 200);
-        alert("Welcome to my page, you visited for the first time!");
+        document.cookie = `counter=${visits};expires=Sun, 15 Jul 2022 00:00:01 GMT`;
+        alert("Welcome to my page!");
     } else {
         visits += 1;
-        alert("You came here for time " + visits);
-        setCookie("counter", visits.toString(), 200);
-        console.log((document.cookie).charAt(8));
+        document.cookie = `counter=${visits};expires=Sun, 15 Jul 2022 00:00:01 GMT`;
+        alert("You are coming here since " + visits + " times!!");
     }
 }
 window.onload = visitCounter();
