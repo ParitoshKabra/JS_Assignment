@@ -16,7 +16,7 @@ let regExp = {
     gender: /\b(male|female|other).*/,
     email: /[^\s@\W]+\.?_?\.?[a-z]?@[^\s@\W]+\.?[^\s@\W]+?\.?[^\s@\W]+?\.?(com|in|edu)/,
     password: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
-    cword: /[\w]+[@$#%&*]+[0-9]+/,
+    cword: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
     city: /\b[A-Za-z]+\b/
 };
 let labels = {
@@ -42,17 +42,39 @@ let error = {
 }
 let inputs = document.querySelectorAll('.inputF');
 
+function regCheck() {
+    let b = false;
+
+    for (const key in form) {
+        if (!regExp[key].test(form[key].value)) {
+            b = true;
+        }
+    }
+    if (b) {
+        alert("Some credentials are invalid! Please recheck");
+    }
+}
 document.querySelectorAll('.inputF').forEach(item => {
     item.addEventListener('change', () => {
         error[item.id].innerHTML = "";
         if (item.value.length == 0) {
             error[item.id].style.display = 'none';
         } else {
-            if (!regExp[item.id].test(form[item.id].value)) {
+            if (item.id == 'cword') {
+                console.log(item.id);
+                if (form['cword'].value != form['password'].value) {
+                    let text = document.createTextNode("Invalid " + labels[item.id]);
+                    error[item.id].appendChild(text);
+                    error[item.id].style.display = 'block';
+                } else {
+                    error[item.id].style.display = 'none';
+
+                }
+            } else if (!regExp[item.id].test(form[item.id].value)) {
                 let text = document.createTextNode("Invalid, " + labels[item.id]);
-                console.log(item);
                 error[item.id].appendChild(text);
                 error[item.id].style.display = 'block';
+
             } else {
                 error[item.id].style.display = 'none';
 
