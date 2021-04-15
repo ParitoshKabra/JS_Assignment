@@ -8,6 +8,8 @@ function myFunction() {
             if (this.readyState == 4 && this.status == 200) {
                 let response = JSON.parse(this.response);
                 alert("Your JSON token is: " + response["token"]);
+            } else if (this.readyState == 4 && this.status == 400) {
+                alert("User not found");
             }
         }
 
