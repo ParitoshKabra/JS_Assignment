@@ -10,14 +10,14 @@ let form = {
 };
 // console.log(form);
 let regExp = {
-    name: /^[A-Za-z]+\s+?[A-Za-z]*$/,
-    phone: /^[6-9]\d{9}$/,
+    name: /^(Dr.|Mr.|Mrs.)?[A-Za-z]+\.?\s+?[A-Za-z]*$/,
+    phone: /^\+?(91)?\s?[6-9]\d{9}$/,
     age: /^\d\d?\d?$/,
     gender: /\b(male|female|other).*/,
     email: /[^\s@\W]+\.?_?\.?[a-z]?@[^\s@\W]+\.?[^\s@\W]+?\.?[^\s@\W]+?\.?(com|in|edu)/,
     password: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
     cword: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
-    city: /\b[A-Za-z]+\b/
+    city: /\b[A-Za-z]+'?\s?[A-Za-z]+?'?\s?\b/
 };
 let labels = {
     name: "name. Should include only alphabets.",

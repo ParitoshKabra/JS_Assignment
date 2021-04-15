@@ -15,3 +15,4 @@ function visitCounter() {
     }
 }
 window.onload = visitCounter();
+// local storage vs session storage vs cookie vs sessions
