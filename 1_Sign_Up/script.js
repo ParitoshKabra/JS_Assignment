@@ -1,4 +1,3 @@
-let message = document.getElementById('reg-message');
 let form = {
     name: document.getElementById('name'),
     phone: document.getElementById('phone'),
@@ -13,10 +12,10 @@ let form = {
 let regExp = {
     name: /^.*\s+?.*$/,
     phone: /^[6-9]\d{9}$/,
-    age: /^\d{1,3}$/,
+    age: /^0?[1][0-9]|[1][1-9][1-9]|200$/,
     gender: /\b(male|female|other).*/,
     email: /[^\s@\W]+\.?_?\.?[a-z]?@[^\s@\W]+\.?[^\s@\W]+?\.?[^\s@\W]+?\.?(com|in|edu)/,
-    password: /(?=.^{8,}$)(?=.*\d)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
+    password: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
     cword: /[\w]+[@$#%&*]+[0-9]+/,
     city: /\b\w+\b/
 };
@@ -46,7 +45,6 @@ function regCheck() {
         if (form[key].value.length == 0) {
             let li = document.createElement('li');
             let textNode = document.createTextNode(key + " field is empty!");
-            let ul = document.getElementById('reg-message');
             ul.appendChild(li);
             li.appendChild(textNode);
             ul.style.display = 'block';
@@ -55,7 +53,6 @@ function regCheck() {
                 if (form[key].value != form["password"].value) {
                     let li = document.createElement('li');
                     let textNode = document.createTextNode("Password entered does not match when confirmed");
-                    let ul = document.getElementById('reg-message');
                     ul.appendChild(li);
                     li.appendChild(textNode);
                     ul.style.display = 'block';
@@ -75,4 +72,5 @@ function regCheck() {
             }
         }
     }
+
 }

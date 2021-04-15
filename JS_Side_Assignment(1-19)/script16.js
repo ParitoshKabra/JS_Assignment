@@ -9,7 +9,6 @@ array[5] = images[3];
 let ball = document.getElementById('ball');
 let i = 0;
 let id;
-let j = 0;
 let b = false;
 
 function start() {
@@ -23,7 +22,6 @@ function start() {
     i++;
 
     id = setTimeout(start, 500);
-    j++;
 
 
 }
