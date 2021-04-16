@@ -2,7 +2,6 @@ let form = {
     name: document.getElementById('name'),
     phone: document.getElementById('phone'),
     age: document.getElementById('age'),
-    gender: document.getElementById('gender'),
     email: document.getElementById('email'),
     password: document.getElementById('password'),
     cword: document.getElementById('cword'),
@@ -10,20 +9,18 @@ let form = {
 };
 // console.log(form);
 let regExp = {
-    name: /^(Dr.|Mr.|Mrs.)?[A-Za-z]+\.?\s+?[A-Za-z]*$/,
-    phone: /^\+?(91)?\s?[6-9]\d{9}$/,
+    name: /^(Dr.|Mr.|Mrs.)?[A-Za-z]+'?\.?\s?[A-Za-z]*'?\.?[A-Za-z]*$/,
+    phone: /^((\+?(91)?)|(0?))[6-9]\d{9}$/,
     age: /^\d\d?\d?$/,
-    gender: /\b(male|female|other).*/,
     email: /[^\s@\W]+\.?_?\.?[a-z]?@[^\s@\W]+\.?[^\s@\W]+?\.?[^\s@\W]+?\.?(com|in|edu)/,
-    password: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
-    cword: /(?=.{8,})(?=.*\d+)(?=.*[@#$%&*!]+)(?=[A-Za-z]+)/,
-    city: /\b[A-Za-z]+'?\s?[A-Za-z]+?'?\s?\b/
+    password: /(?=.{8,})(?=.*\d+)(?=.*\W+)(?=[A-Za-z]+)/,
+    cword: /(?=.{8,})(?=.*\d+)(?=.*\W+)(?=[A-Za-z]+)/,
+    city: /^([a-zA-Z]+'?\s?)*$/
 };
 let labels = {
     name: "name. Should include only alphabets.",
     phone: "phone number",
     age: "age",
-    gender: "gender-option",
     email: "email-syntax",
     password: "password format. Must include atleast a digit and special character and atleast 8 characters.",
     cword: "form. Passowrd should match when confirmed",
@@ -34,11 +31,10 @@ let error = {
     name: errorP[0],
     phone: errorP[1],
     age: errorP[2],
-    gender: errorP[3],
-    email: errorP[4],
-    password: errorP[5],
-    cword: errorP[6],
-    city: errorP[7]
+    email: errorP[3],
+    password: errorP[4],
+    cword: errorP[5],
+    city: errorP[6]
 }
 let inputs = document.querySelectorAll('.inputF');
 
