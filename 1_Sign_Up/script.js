@@ -9,8 +9,8 @@ let form = {
 };
 // console.log(form);
 let regExp = {
-    name: /^(Dr.|Mr.|Mrs.)?[A-Za-z]+'?\.?\s?[A-Za-z]*'?\.?[A-Za-z]*$/,
-    phone: /^((\+?(91)?)|(0?))[6-9]\d{9}$/,
+    name: /^(Dr.|Mr.|Mrs.)?[A-Za-z]+'?\.?\s?[A-Za-z]*'?\.?\s?[A-Za-z]*$/,
+    phone: /^((\+?(91)?-?)|(0?))[6-9]\d{9}$/,
     age: /^\d\d?\d?$/,
     email: /[^\s@\W]+\.?_?\.?[a-z]?@[^\s@\W]+\.?[^\s@\W]+?\.?[^\s@\W]+?\.?(com|in|edu)/,
     password: /(?=.{8,})(?=.*\d+)(?=.*\W+)(?=[A-Za-z]+)/,
